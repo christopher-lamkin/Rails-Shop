@@ -1,0 +1,14 @@
+<h1> Product Catalog </h1>
+
+<ul>
+  <% @products.each do |product| %>
+  <li>
+    <p>
+      <strong><%= link_to product.product_name, product_path(product) %></strong>
+    </p>
+    <p>
+      <%= product.description %>
+    </p>
+  </li>
+  <% end %>
+</ul>
