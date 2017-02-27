@@ -21,6 +21,18 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      redirect_to @product
+    else
+      render 'Edit'
+    end
+  end
+
+  def destroy
+  end
+
   private
   def product_params
     params.require(:product).permit(:product_name, :product_description, :price)
