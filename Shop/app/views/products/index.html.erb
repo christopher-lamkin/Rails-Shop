@@ -1,5 +1,7 @@
 <h1> Product Catalog </h1>
 
+<p><strong> <%= link_to 'Create new Product', new_product_path %></strong></p>
+
 <ul>
   <% @products.each do |product| %>
   <li>
@@ -7,7 +9,7 @@
       <strong><%= link_to product.product_name, product_path(product) %></strong>
     </p>
     <p>
-      <%= product.description %>
+      <%= product.product_description %>
     </p>
   </li>
   <% end %>
