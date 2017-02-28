@@ -1,21 +1,5 @@
 <h1> Edit Product </h1>
 
-<%= form_for :product, url: product_path(@product), method: :patch do |f| %>
-  <p>
-    <%= f.label :product_name %>
-    <%= f.text_field :product_name %>
-  </p>
-  <p>
-    <%= f.label :product_description %>
-    <%= f.text_area :product_description, cols: "30", rows: "10" %>
-  </p>
-  <p>
-    <%= f.label :price %>
-    <%= f.text_field :price %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<%= render 'form' %>
 
-<p><strong><%= link_to 'Back', products_path %></strong></p>
+<p><strong><%= link_to 'Back to Catalog', products_path %></strong></p>
