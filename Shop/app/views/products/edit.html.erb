@@ -1,6 +1,6 @@
 <h1> Edit Product </h1>
 
-<%= form_for :product, url: products_path do |f| %>
+<%= form_for :product, url: product_path(@product), method: :patch do |f| %>
   <p>
     <%= f.label :product_name %>
     <%= f.text_field :product_name %>
@@ -12,6 +12,9 @@
   <p>
     <%= f.label :price %>
     <%= f.text_field :price %>
+  </p>
+  <p>
+    <%= f.submit %>
   </p>
 <% end %>
 
