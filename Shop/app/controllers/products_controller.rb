@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
     if @product.save
       redirect_to @product
     else
-      render 'new'
+      render 'New'
     end
   end
 

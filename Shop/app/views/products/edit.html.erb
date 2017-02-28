@@ -1,0 +1,18 @@
+<h1> Edit Product </h1>
+
+<%= form_for @product, url: products_path do |f| %>
+  <p>
+    <%= f.label :product_name %>
+    <%= f.text_field :product_name, placeholder: @product.product_name %>
+  </p>
+  <p>
+    <%= f.label :product_description %>
+    <%= f.text_area :product_description, cols: "30", rows: "10", placeholder: @product.product_description %>
+  </p>
+  <p>
+    <%= f.label :price %>
+    <%= f.text_field :price, placeholder: "$" + @product.price %>
+  </p>
+<% end %>
+
+<p><strong><%= link_to 'Back', products_path %></strong></p>
