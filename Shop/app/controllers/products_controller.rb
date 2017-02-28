@@ -4,6 +4,10 @@ class ProductsController < ApplicationController
     @product = Product.new
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
   def create
     @product = Product.new(product_params)
     if @product.save
@@ -26,7 +30,7 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to @product
     else
-      render 'Edit'
+      render 'edit'
     end
   end
 
