@@ -2,21 +2,20 @@
 
 <p><strong> <%= link_to 'Create new Product', new_product_path %></strong></p>
 
-<ul>
+<table>
+  <tr>
+    <th>Product Name</th>
+    <th>Product Description</th>
+    <th>Price</th>
+  </tr>
   <% @products.each do |product| %>
-  <li>
-    <p>
-      <strong><%= link_to product.product_name, product_path(product) %></strong>
-    </p>
-    <p>
-      <%= product.product_description %>
-    </p>
-    <p>
-      $<%= product.price %>
-    </p>
-
-    <p> <%= link_to 'Edit', edit_product_path(product) %></p>
-    <p> <%= link_to 'Delete', product_path(product), method: :delete, data: { confirm: 'Are you sure?'} %></p>
-  </li>
+    <tr>
+      <td><%= product.product_name %></td>
+      <td><%= product.product_description %></td>
+      <td><%= product.product_price %></td>
+      <td> <%= link_to 'Show', product_path(product) %></td>
+      <td> <%= link_to 'Edit', edit_product_path(product) %></td>
+      <td> <%= link_to 'Delete', product_path(product), method: delete, data { confirm 'Are you sure?'} %></td>
+    </tr>
   <% end %>
-</ul>
+</table>
