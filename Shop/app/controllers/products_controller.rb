@@ -44,6 +44,10 @@ http_basic_authenticate_with name: "admin", password: "secret", except: [:index,
     redirect_to products_path
   end
 
+  def admin
+    @products = Products.all
+  end
+
   private
   def product_params
     params.require(:product).permit(:product_name, :product_description, :price, :image_url, :quantity)
