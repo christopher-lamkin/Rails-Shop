@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
-  get '/admin', to: => 'products#admin'
+  get '/admin', :to => 'products#admin'
 end
