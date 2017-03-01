@@ -1,7 +1,15 @@
 <h2><%= @product.product_name %></h2>
 
+<%=image_tag("#{@product.image_url}") %>
+
 <p>
   <%= @product.product_description %>
+</p>
+<p>
+  $<%= @product.price %>
+</p>
+<p>
+  <%= @product.quantity %>
 </p>
 
 <p><strong> <%= link_to 'Catalog', products_path %></strong></p>
