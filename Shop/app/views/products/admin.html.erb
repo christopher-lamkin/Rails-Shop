@@ -1,4 +1,4 @@
-<h1> Admin's Catalog </h1>
+<h1 class="center"> Admin's Catalog </h1>
 
 <p><strong> <%= link_to 'Create new Product', new_product_path %></strong></p>
 
@@ -10,10 +10,9 @@
   </tr>
   <% @products.each do |product| %>
     <tr>
-      <td><%= product.product_name %></td>
+      <td><%= link_to "#{product.product_name}", product_path(product) %></td>
       <td><%= product.product_description %></td>
       <td><%= product.price %></td>
-      <td> <%= link_to 'Show', product_path(product) %></td>
       <td> <%= link_to 'Edit', edit_product_path(product) %></td>
       <td> <%= link_to 'Delete', product_path(product), method: :delete, data: { confirm: 'Are you sure?'} %></td>
     </tr>

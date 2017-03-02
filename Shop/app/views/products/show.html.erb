@@ -1,15 +1,19 @@
-<h2><%= @product.product_name %></h2>
+<div class="container center">
 
-<%=image_tag("#{@product.image_url}") %>
+  <h2><%= @product.product_name %></h2>
 
-<p>
-  <%= @product.product_description %>
-</p>
-<p>
-  $<%= @product.price %>
-</p>
-<p>
-  <strong>In Stock:</strong> <%= @product.quantity %>
-</p>
+  <%=image_tag("#{@product.image_url}") %>
 
-<p><strong> <%= link_to 'Catalog', products_path %></strong></p>
+  <p>
+    <%= @product.product_description %>
+  </p>
+  <p>
+    $<%= @product.price %>
+  </p>
+  <p>
+    <strong>In Stock:</strong> <%= @product.quantity %>
+  </p>
+
+  <p><strong> <%= link_to 'Back to Catalog', products_path %></strong></p>
+
+</div>
