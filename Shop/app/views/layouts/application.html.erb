@@ -3,15 +3,51 @@
   <head>
     <title>Shop</title>
     <%= csrf_meta_tags %>
+    <!--Google icons and fonts -->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!--optimize website for mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   </head>
 
-  <body>
+  <body class="purple lighten-5">
+    <!-- Import jquery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+  <nav>
+    <div class="nav-wrapper purple lighten-4">
+          <a href="/products" class="brand-logo center">Spree</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><%= link_to 'Admin', admin_path %></a></li>
+        <% if logged_in %>
+          <li> <%= link_to 'Logout', '/logout' %></li>
+        <% else %>
+          <li> <%= link_to 'Login', '/login' %></li>
+          <li> <%= link_to 'Register', new_user_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+
     <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>">
-        <%= message %>
+      <% if message_type = :success %>
+      <div class="container">
+        <br>
+        <div class="center alert alert-<%= message_type %> green lighten-2 white-text">
+          <%= message %>
+        </div>
+        <% else %>
+        <div class="center alert alert-<%= message_type %> red lighten-3">
+          <%= message %>
+        </div>
+        <% end %>
       </div>
     <% end %>
     <%= yield %>
