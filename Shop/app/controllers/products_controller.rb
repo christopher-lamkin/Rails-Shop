@@ -16,6 +16,7 @@ http_basic_authenticate_with name: "admin", password: "secret", except: [:index,
       redirect_to @product
     else
       render 'new'
+      flash[:error] = "Product not created."
     end
   end
 
@@ -34,6 +35,7 @@ http_basic_authenticate_with name: "admin", password: "secret", except: [:index,
       redirect_to @product
     else
       render 'edit'
+      flash[:error] = "Product not updated."
     end
   end
 
