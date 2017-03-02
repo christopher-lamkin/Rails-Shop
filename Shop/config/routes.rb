@@ -6,4 +6,9 @@ Rails.application.routes.draw do
   root 'products#index'
 
   get '/admin', :to => 'products#admin'
+
+  get '/register', to: 'users#new'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
 end
