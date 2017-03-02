@@ -31,8 +31,17 @@
   </nav>
 
     <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>">
-        <%= message %>
+      <% if message_type = :success %>
+      <div class="container">
+        <br>
+        <div class="center alert alert-<%= message_type %> green lighten-2 white-text">
+          <%= message %>
+        </div>
+        <% else %>
+        <div class="center alert alert-<%= message_type %> red lighten-3">
+          <%= message %>
+        </div>
+        <% end %>
       </div>
     <% end %>
     <%= yield %>
