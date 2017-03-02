@@ -26,7 +26,12 @@
           <a href="/products" class="brand-logo center">Spree</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <li><%= link_to 'Admin', admin_path %></a></li>
-        <li> <%= link_to 'Register', new_user_path %></li>
+        <% if logged_in %>
+          <li> <%= link_to 'Logout', '/logout' %></li>
+        <% else %>
+          <li> <%= link_to 'Login', '/login' %></li>
+          <li> <%= link_to 'Register', new_user_path %></li>
+        <% end %>
       </ul>
     </div>
   </nav>
