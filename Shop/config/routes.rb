@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :products
   root 'products#index'
 
+  resources :categories
+  
+
   get '/admin', :to => 'products#admin'
 
   get '/register', to: 'users#new'
