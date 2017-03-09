@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Create New Category</h1>
+
+  <%= form_for :category, @category do |f| %>
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="center-align input-field col s4 offset-s4">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
+        <div class="center-align input-field col s4 offset-s4">
+          <%= f.label :description %>
+          <%= f.text_field :description %>
+        </div>
+        <div class="center-align input-field col s4 offset-s4">
+          <%= f.label :image_url %>
+          <%= f.text_field :image_url %>
+        </div>
+        <div class="row">
+          <%= f.submit 'Create', :class => "waves-effect waves-light btn" %>
+        </div>
+      </div>
+    </form>
+  </div>
+  <% end %>
+</div>

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'products#index'
 
   resources :categories
-  
+  root 'categories#index'
 
   get '/admin', :to => 'products#admin'
 
