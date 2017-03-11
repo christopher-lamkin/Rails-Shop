@@ -1,0 +1,25 @@
+<h1 class="center">Products in <%= @category.name %></h1>
+
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th data-field="product-name">Product Name</th>
+        <th data-field="product_description">Description</th>
+        <th data-field="price">Price</th>
+        <th data-field="quantity">Quantity</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @products.each do |product| %>
+      <tr>
+        <td><%= link_to "#{product.product_name}", product_path(product) %></td>
+        <td><%= product.product_description %></td>
+        <td><%= product.price %></td>
+        <td><%= product.quantity %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -3,7 +3,7 @@ Product.delete_all
 User.delete_all
 
 User.create( username: "cjadmin", email: "cjlamkin64@gmail.com", password: "123", admin: true)
-User.create( username: "cjuser", email: "cjlamkin64@gmail.com", password: "123")
+User.create( username: "cjuser", email: "cjlamkin64@yahoo.com", password: "123", admin: false)
 
 5.times do
   category = Category.create( name: Faker::Commerce.department,
