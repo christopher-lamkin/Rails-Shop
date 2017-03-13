@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :categories
   root 'categories#index'
 
-  resources :cart, only: :show
+  resources :carts, only: :show
   resources :carts_products
 
   get '/admin', :to => 'products#admin'
