@@ -48,6 +48,7 @@ class UsersController < ApplicationController
     unless current_user == User.find(params[:id])
       flash[:danger] = "That is not your account"
       redirect_to '/'
+    end
   end
   def user_params
     params.require(:user).permit(:username, :email, :password)
