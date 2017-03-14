@@ -1,20 +1,20 @@
 <div class="container">
   <% @categories.each_slice(3) do |category_array| %>
-  <div class="row">
-    <% category_array.each do |category| %>
-    <div class="card medium col l4 s12 m7 height-test">
-      <div class="card-image">
+    <div class="row">
+      <% category_array.each do |category| %>
+      <div class="card medium col l4 s12 m7 height-test">
+        <div class="card-image">
           <%=image_tag("#{category.image_url}") %>
-        <span class="card-title"><%= category.name %></span>
+          <span class="card-title"><%= category.name %></span>
+        </div>
+        <div class="card-content">
+          <p><%= category.description %></p>
+        </div>
+        <div class="card-action">
+          <%= link_to "See Products", category_path(category) %>
+        </div>
       </div>
-      <div class="card-content">
-        <p><%= category.description %></p>
-      </div>
-      <div class="card-action">
-        <%= link_to "See Products", category_path(category) %>
-      </div>
+      <% end %>
     </div>
-    <% end %>
-  </div>
   <% end %>
 </div>
