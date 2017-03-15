@@ -1,8 +1,8 @@
 <div class="container">
-  <% @categories.each do |category| %>
-  <div class="row">
-    <div class="col s12 m7">
-      <div class="card">
+  <% @categories.each_slice(3) do |category_array| %>
+    <div class="row">
+      <% category_array.each do |category| %>
+      <div class="card medium col l4 s12 m7 height-test">
         <div class="card-image">
           <%=image_tag("#{category.image_url}") %>
           <span class="card-title"><%= category.name %></span>
@@ -14,7 +14,7 @@
           <%= link_to "See Products", category_path(category) %>
         </div>
       </div>
+      <% end %>
     </div>
-  </div>
   <% end %>
 </div>
