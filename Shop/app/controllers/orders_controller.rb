@@ -8,7 +8,6 @@ class OrdersController < ApplicationController
     @user = current_user
     @cart = Cart.find_by(user_id: @user.id)
     @carts_products = @cart.carts_products
-
     @order = Order.new(user_id: current_user.id)
 
     if @order.save

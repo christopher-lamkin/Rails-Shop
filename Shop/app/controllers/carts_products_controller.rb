@@ -6,16 +6,23 @@ class CartsProductsController < ApplicationController
 
   def create
     @user = current_user
-    @cart = Cart.find_by(user_id: current_user.id)
-    @carts_product = CartsProduct.new(cart_id: @cart.id, product_id: params[:product_id], quantity: params[:quantity])
-    p "****************************"
-    p params
-    p "****************************"
-    if @carts_product.save
+    @cart = Cart.find_by(user_id: @user.id)
+    @product = Product.find(params[:carts_product][:product_id])
+    @carts_product = CartsProduct.new(cart_id: @cart.id, product_id: @product.id, quantity: params[:carts_product][:quantity])
+
+    if @carts_product.quantity <= @product.quantity && @carts_product.save
       flash[:success] = "Item added to cart!"
-      redirect_to @cart
+      redirect_to cart_path(@cart.id)
     else
       flash[:error] = "Failed to add item to cart."
+      redirect_to @product
     end
+  end
+
+  def destroy
+    @carts_product = CartsProduct.find(params[:id])
+    @carts_product.destroy
+    flash[:success] = "Product successfully deleted from cart"
+    redirect to cart_path(current_user.cart.id)
   end
 end
