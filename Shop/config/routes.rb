@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :carts, only: :show
   resources :carts_products
-  resources :orders only: [:create, :index]
+  resources :orders, only: [:create, :index]
 
 
   get '/admin', :to => 'products#admin'
