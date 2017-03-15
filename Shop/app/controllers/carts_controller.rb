@@ -2,7 +2,7 @@ class CartsController < ApplicationController
 
   def show
     @cart = current_user.cart
-    @products = @cart.products
+    @carts_products = CartsProduct.all
   end
-  
+
 end

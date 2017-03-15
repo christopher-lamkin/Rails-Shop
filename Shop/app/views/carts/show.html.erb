@@ -1,0 +1,30 @@
+<h1 class="center"> Your Cart </h1>
+
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th data-field="product-name"> Product Name</th>
+        <th data-field="product-description"> Product Description</th>
+        <th data-field="price"> Quantity </th>
+        <th data-field="quantity"> Total Price </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @carts_products.each do |carts_product| %>
+      <tr>
+        <td> <%= carts_product.product.product_name %> </td>
+        <td> <%= carts_product.product.product_description %> </td>
+        <td> <%= carts_product.product.quantity %> </td>
+        <td> <%= carts_product.product.price * carts_product.product.quantity %> </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+
+
+
+</div>

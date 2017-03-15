@@ -9,7 +9,7 @@ class CartsProductsController < ApplicationController
     @cart = Cart.find_by(user_id: @user.id)
     @product = Product.find(params[:carts_product][:product_id])
     @carts_product = CartsProduct.new(cart_id: @cart.id, product_id: @product.id, quantity: params[:carts_product][:quantity])
-    @carts_product = CartsProduct.find_or_initialize_by(title: params[:carts_product])
+    # @carts_product = CartsProduct.find_or_initialize_by(title: params[:carts_product])
     if @carts_product.quantity <= @product.quantity && @carts_product.save
       flash[:success] = "Item added to cart!"
       redirect_to cart_path(@cart.id)
