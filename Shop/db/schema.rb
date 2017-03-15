@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170313211350) do
   create_table "carts_products", force: :cascade do |t|
     t.integer  "cart_id"
     t.integer  "product_id"
+    t.integer  "order_id"
     t.integer  "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -42,6 +43,7 @@ ActiveRecord::Schema.define(version: 20170313211350) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,10 +52,10 @@ ActiveRecord::Schema.define(version: 20170313211350) do
     t.string   "product_name"
     t.text     "product_description"
     t.float    "price"
+    t.integer  "quantity"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.string   "image_url"
-    t.integer  "quantity"
   end
 
   create_table "users", force: :cascade do |t|
