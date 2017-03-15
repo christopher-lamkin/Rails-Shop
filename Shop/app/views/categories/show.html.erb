@@ -1,25 +1,22 @@
 <h1 class="center">Products in <%= @category.name %></h1>
 
 <div class="container">
-  <table>
-    <thead>
-      <tr>
-        <th data-field="product-name">Product Name</th>
-        <th data-field="product_description">Description</th>
-        <th data-field="price">Price</th>
-        <th data-field="quantity">Quantity</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @products.each do |product| %>
-      <tr>
-        <td><%= link_to "#{product.product_name}", product_path(product) %></td>
-        <td><%= product.product_description %></td>
-        <td><%= product.price %></td>
-        <td><%= product.quantity %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <% @products.each_slice(4) do |product_array| %>
+  <div class="row">
+    <% product_array.each do |product| %>
+    <div class="card small col l3 s8 m4 height-test">
+      <div class="card-image">
+        <%= image_tag("#{product.image_url}") %>
+        <span class="card-title"><%= product.product_name %></span>
+      </div>
+      <div class="card-content">
+        <p><%= product.product_description %></p>
+      </div>
+      <div class="card-action">
+        <%= link_to "Product Page", product_path(product) %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <% end %>
 </div>
