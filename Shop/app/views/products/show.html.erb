@@ -14,6 +14,13 @@
     <strong>In Stock:</strong> <%= @product.quantity %>
   </p>
 
+  <%= form_for :carts_product, url: { action: :create, :controller => "carts_products" } do |f| %>
+
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity %>
+    <%= f.hidden_field :product_id, :value => @product.id %>
+    <%= f.submit "Add to Cart" %>
+  <% end %>
   <p><strong> <%= link_to 'Back to Catalog', products_path %></strong></p>
-  <p><strong> <%= link_to 'Add to Cart', new_carts_product_path %></strong></p>
+  <!-- <p><strong> <%= link_to 'Add to Cart', new_carts_product_path %></strong></p> -->
 </div>

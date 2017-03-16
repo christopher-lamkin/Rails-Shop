@@ -14,7 +14,8 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = "Successfully registered!"
       session[:user_id] = @user.id
-      redirect_to @user
+      @cart = Cart.create(user_id: @user.id)
+      redirect_to categories_path
     else
       render 'new'
     end

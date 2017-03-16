@@ -2,10 +2,10 @@ Category.delete_all
 Product.delete_all
 User.delete_all
 Cart.delete_all
-User.create( username: "cjadmin", email: "cjlamkin64@gmail.com", password: "123", admin: true)
-User.create( username: "cjuser", email: "cjlamkin64@yahoo.com", password: "123", admin: false)
 
-Cart.create(user_id: 2 )
+admin = User.create( username: "cjadmin", email: "cjlamkin64@gmail.com", password: "123", admin: true)
+user = User.create( username: "cjuser", email: "cjlamkin64@yahoo.com", password: "123", admin: false)
+Cart.create( user_id: user.id)
 
 category_one = Category.create( name: "Home Decor", description: "Products to decorate your abode", image_url: "http://www.homeownersjournal.com/wp-content/uploads/2015/08/modern-home-decor-342.jpg")
 category_two = Category.create( name: "Sports", description: "Athletic gear, wear, and memorabilia", image_url: "http://www.proprofs.com/quiz-school/topic_images/p18lq7ediepl816p6s04171vo23.jpg")
